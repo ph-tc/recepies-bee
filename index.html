@@ -511,12 +511,12 @@
 
 <div class="main">
   <div class="inner">
-    <ul class="menu">
+    <ul class="menu" id="menu">
       <li>Первые блюда</li>
       <li>Вторые блюда</li>
       <li>Десерты</li>
     </ul>
-    <form action="#">
+    <form action="#" id="search">
       <input type="search" placeholder="Поиск">
     </form>
     <div class="btn-wrapper" id="btn-wrapper">
@@ -560,11 +560,19 @@
     function rsz() {
         var footer = document['getElementById']('footer');
         var buttonWrap = document['getElementsByClassName']('btn-wrapper')[0];
+        var menu = document['getElementById']('menu');
+        var search = document['getElementById']('search');
         footer['style']['bottom'] = "auto";
         footer['style']['top'] = (window['innerHeight'] - footer.offsetHeight) + 'px';
         if ((window['innerHeight'] > 212) && (window['innerHeight'] < 233)) {
             buttonWrap['style']['marginTop'] = '-'+ (footer.offsetHeight-45) + 'px';
-        } else { buttonWrap['style']['marginTop'] = 0; }
+            menu['style']['display'] = 'none';
+            search['style']['display'] = 'none';
+        } else {
+            buttonWrap['style']['marginTop'] = 0;
+            menu['style']['display'] = 'none';
+            search['style']['display'] = 'none';
+        }
 
         document.body.style.height = window.innerHeight + 'px';
     }
