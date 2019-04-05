@@ -261,12 +261,23 @@
       background-image: linear-gradient(0deg, #685342 0%, #938373 100%);
     }
 
-    .main form {
+    .main .menu li:last-child {
+      display: none;
+      padding: 0;
+      background-image: none;
+      text-align: left;
+    }
+
+    .main .form {
       width: 100%;
       padding: 0 5px;
     }
 
-    .main form input {
+    .main .menu-form {
+      padding: 0;
+    }
+
+    .main .form input {
       width: 60%;
       padding: 0 10px;
       font-family: "Myriad Pro", sans-serif;
@@ -277,6 +288,11 @@
       -webkit-border-radius: 5px;
       border-radius: 5px;
       background-color: #f5f1dd;
+    }
+
+    .main .menu-form input {
+      width: 100%;
+      line-height: 24px;
     }
 
     .main .btn-wrapper {
@@ -307,7 +323,7 @@
       font-size: 18px;
       color: #ffffff;
       text-align: center;
-      text-shadow: 0 0 24px rgba(0,0,0,0.78);
+      text-shadow: 0 0 5px #000;
     }
 
     .main .btn {
@@ -363,7 +379,7 @@
     }
 
     @media screen and (max-height: 300px) {
-      .main form {
+      .main .main-form {
         display: none;
       }
     }
@@ -386,6 +402,16 @@
         -webkit-transform: none;
         -ms-transform: none;
         transform: none;
+      }
+    }
+
+    @media (orientation: landscape) and (min-width: 500px) {
+      .main .menu li:last-child {
+        display: table-cell;
+      }
+
+      .main .main-form {
+        display: none;
       }
     }
 
@@ -513,8 +539,13 @@
       <li>Первые блюда</li>
       <li>Вторые блюда</li>
       <li>Десерты</li>
+      <li>
+        <form class="form menu-form" action="#">
+          <input type="search" placeholder="Поиск">
+        </form>
+      </li>
     </ul>
-    <form action="#" id="search">
+    <form class="form main-form" action="#" id="search">
       <input type="search" placeholder="Поиск">
     </form>
     <div class="btn-wrapper" id="btn-wrapper">
